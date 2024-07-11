@@ -31,7 +31,7 @@ setup(
 	],
 	entry_points ={ 
         'console_scripts': [ 
-            'background_vlc = background_vlc:main'
+            'background_vlc = background_vlc'
         ] 
     },
     python_requires='>=3.5',
