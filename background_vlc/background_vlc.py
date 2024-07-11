@@ -12,6 +12,7 @@ class FramelessPlayer(QtWidgets.QWidget):
 
         # Set the desired window size
         self.setGeometry(x, y, width, height)
+        # self.setGeometry(-50, -50, width, height)
 
         # Create an instance of VLC
         self.instance = vlc.Instance()
@@ -23,6 +24,10 @@ class FramelessPlayer(QtWidgets.QWidget):
         # Create a media object
         media = self.instance.media_new(media_path)
         self.player.set_media(media)
+        
+        self.player.video_set_scale(0)  # Disable scaling to use the size below
+        self.player.video_set_aspect_ratio("16:9")  # Set aspect ratio to 16:9
+        # self.player.set_xwindow(234)
 
         # Create a video frame widget
         self.videoframe = QtWidgets.QFrame()
